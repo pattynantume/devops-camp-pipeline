@@ -47,7 +47,6 @@ pipeline {
 					}
 				}
 			}
-		}
 		stage('Database docker build') {
 			steps {
 			// modify to build db image and push to harbor
