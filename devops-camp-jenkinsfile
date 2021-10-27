@@ -42,7 +42,7 @@ pipeline {
 		stage('Database docker build') {
 			steps {
 			// modify to build db image and push to harbor
-				withCredentials([usernameColonPassword(credentialsId: 'pnantume-harbor-auth, variable: 'HARBOR-AUTH')]) {
+				withCredentials([usernameColonPassword(credentialsId: 'pnantume-harbor-auth', variable: 'HARBOR-AUTH')]) {
 				script {
 					docker.build('$DB_IMAGE_NAME-$APP_HASH', '-f ./db/Dockerfile ./afs-labs-student')
 					docker.withRegistry('https://$HARBOR_REGISTRY', 'student20') {
